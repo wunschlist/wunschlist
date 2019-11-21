@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'wunschliste/wunschliste.dart';
 
 // Our navigation widget which handles navigation between different screens.
 class NavigationWidget extends StatefulWidget {
@@ -9,16 +10,11 @@ class NavigationWidget extends StatefulWidget {
 class _NavigationWidgetState extends State<NavigationWidget> {
   int _selectedIndex = 0;
 
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  List<Widget> _widgetOptions = <Widget>[
+    WunschlisteWidget(),
     Text(
-      "Index 0",
-      style: optionStyle,
-    ),
-    Text(
-      "Index 1",
-      style: optionStyle,
+      "Temporärer Settings Placeholder",
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     )
   ];
 
