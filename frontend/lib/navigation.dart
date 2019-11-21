@@ -39,7 +39,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Provider.of<WunschlistModel>(context, listen: false).add(Wunsch(title: "New Wunsch"));
+          Navigator.pushNamed(context, "/create_wunsch");
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
