@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'wunschliste/wunschliste.dart';
-import 'package:provider/provider.dart';
-import 'model/wunschlist_model.dart';
-import 'model/wunsch.dart';
 
 // Our navigation widget which handles navigation between different screens.
 class NavigationWidget extends StatefulWidget {

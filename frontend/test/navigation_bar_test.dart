@@ -10,7 +10,7 @@ import 'package:wunschlist/wunschlist_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  testWidgets('BottomNavigationBar test', (WidgetTester tester) async {
+  testWidgets("BottomNavigationBar test", (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(WunschlistApp());
 
@@ -20,8 +20,16 @@ void main() {
     // Verify bar has the correct size
     expect(box.size.height, kBottomNavigationBarHeight);
 
+    expect(find.byType(BottomNavigationBar), findsOneWidget);
+
     // Verify correct options are shown in the bar
     expect(find.text('Wunschlist'), findsWidgets);
     expect(find.text('Settings'), findsOneWidget);
+  });
+
+  testWidgets("FloatingActionButton test", (WidgetTester tester) async {
+    await tester.pumpWidget(WunschlistApp());
+
+    expect(find.byType(FloatingActionButton), findsOneWidget);
   });
 }
