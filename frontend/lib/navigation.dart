@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'wunschliste/wunschliste.dart';
+import 'package:provider/provider.dart';
+import 'model/wunschlist_model.dart';
+import 'model/wunsch.dart';
 
 // Our navigation widget which handles navigation between different screens.
 class NavigationWidget extends StatefulWidget {
@@ -32,6 +35,12 @@ class _NavigationWidgetState extends State<NavigationWidget> {
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Provider.of<WunschlistModel>(context, listen: false).add(Wunsch(title: "New Wunsch"));
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
