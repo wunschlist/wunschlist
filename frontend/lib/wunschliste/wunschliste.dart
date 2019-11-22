@@ -18,18 +18,24 @@ class _WunschlisteWidgetState extends State<WunschlisteWidget> {
           itemBuilder: (context, index) {
             final wunsch = wunschlistModel.wunschlist[index];
             return Dismissible(
-                key: Key(wunsch.title),
-                onDismissed: (direction) {
-                  Provider.of<WunschlistModel>(context, listen: false)
-                      .remove(wunschlistModel.wunschlist[index]);
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(wunsch.title + " removed"),
-                    ),
-                  );
-                },
-                background: Container(color: Colors.red),
-                child: ListTile(title: Text(wunsch.title)));
+              key: Key(wunsch.title),
+              onDismissed: (direction) {
+                Provider.of<WunschlistModel>(context, listen: false)
+                    .remove(wunschlistModel.wunschlist[index]);
+                Scaffold.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(wunsch.title + " removed"),
+                  ),
+                );
+              },
+              background: Container(color: Colors.red),
+              child: Container(
+                color: Colors.orange[((index % 10) + 1) * 100],
+                child: ListTile(
+                  title: Text(wunsch.title),
+                ),
+              ),
+            );
           },
         );
       }),
