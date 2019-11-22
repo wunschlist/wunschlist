@@ -16,8 +16,20 @@ class _WunschlisteWidgetState extends State<WunschlisteWidget> {
         return ListView.builder(
           itemCount: wunschlistModel.wunschlist.length,
           itemBuilder: (context, index) {
-            var wunsch = wunschlistModel.wunschlist[index];
-            return ListTile(title: Text(wunsch.title));
+            final wunsch = wunschlistModel.wunschlist[index];
+            return Dismissible(
+                key: Key(wunsch.title),
+                onDismissed: (direction) {
+                  Provider.of<WunschlistModel>(context, listen: false)
+                      .remove(wunschlistModel.wunschlist[index]);
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(wunsch.title + " removed"),
+                    ),
+                  );
+                },
+                background: Container(color: Colors.red),
+                child: ListTile(title: Text(wunsch.title)));
           },
         );
       }),

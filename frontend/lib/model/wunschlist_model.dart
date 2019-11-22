@@ -12,4 +12,9 @@ class WunschlistModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void remove(Wunsch wunsch) {
+    _wunschlist.remove(wunsch);
+    notifyListeners();
+  }
+
 }
