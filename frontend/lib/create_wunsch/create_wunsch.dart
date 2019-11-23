@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wunschlist/model/wunschlist_model.dart';
 import 'package:wunschlist/model/wunsch.dart';
+import 'add_link_widget.dart';
 
 class CreateWunschWidget extends StatefulWidget {
   @override
@@ -9,10 +10,11 @@ class CreateWunschWidget extends StatefulWidget {
 }
 
 class _CreateWunschWidgetState extends State<CreateWunschWidget> {
-  TextEditingController titleController = TextEditingController();
+  TextEditingController _titleController = TextEditingController();
+  String _selectedLink;
 
   void _onFabTapped(BuildContext scaffoldContext) {
-    if (titleController.text.isEmpty) {
+    if (_titleController.text.isEmpty) {
       Scaffold.of(scaffoldContext).showSnackBar(
         SnackBar(
           content: Text(
@@ -23,8 +25,13 @@ class _CreateWunschWidgetState extends State<CreateWunschWidget> {
       return;
     }
     Provider.of<WunschlistModel>(context, listen: false)
-        .add(Wunsch(title: titleController.text));
+        .add(Wunsch(title: _titleController.text, link: _selectedLink));
     Navigator.pop(context);
+  }
+
+  void _grabLink() async {
+    String link = await Navigator.push(context, MaterialPageRoute(builder: (context) => AddLinkWidget()));
+    _selectedLink = link;
   }
 
   @override
@@ -39,9 +46,18 @@ class _CreateWunschWidgetState extends State<CreateWunschWidget> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextField(
-              controller: titleController,
+              controller: _titleController,
               decoration:
                   InputDecoration(hintText: "Enter title", labelText: "Title"),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: RaisedButton(
+              onPressed: _grabLink,
+              child: Text(
+                "Add Link",
+              ),
             ),
           )
         ],
@@ -51,9 +67,7 @@ class _CreateWunschWidgetState extends State<CreateWunschWidget> {
         child: Builder(
           builder: (scaffoldContext) {
             return FloatingActionButton(
-              onPressed: () {
-                _onFabTapped(scaffoldContext);
-              },
+              onPressed: () => _onFabTapped(scaffoldContext),
               child: Icon(Icons.check),
             );
           },

@@ -27,6 +27,9 @@ dependencies:
   # provider package for our architecture
   provider: 3.1.0
 
+  # webview package to show a browser in the app
+  webview_flutter: ^0.3.15
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

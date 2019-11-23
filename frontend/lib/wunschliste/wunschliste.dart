@@ -31,8 +31,11 @@ class _WunschlisteWidgetState extends State<WunschlisteWidget> {
               background: Container(color: Colors.red),
               child: Container(
                 color: Colors.orange[((index % 10) + 1) * 100],
-                child: ListTile(
-                  title: Text(wunsch.title),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListTile(
+                    title: Text(wunsch.title, style: Theme.of(context).textTheme.title,),
+                  ),
                 ),
               ),
             );
