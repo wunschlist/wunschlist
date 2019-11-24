@@ -4,7 +4,6 @@ import 'package:wunschlist/model/wunschlist_model.dart';
 import 'package:wunschlist/model/wunsch.dart';
 import 'add_link_widget.dart';
 import 'package:wunschlist/my_app_bar.dart';
-import 'package:intl/intl.dart';
 
 class CreateWunschWidget extends StatefulWidget {
   @override
@@ -51,6 +50,7 @@ class _CreateWunschWidgetState extends State<CreateWunschWidget> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextField(
+              autofocus: true,
               controller: _titleController,
               decoration:
                   InputDecoration(hintText: "Enter title", labelText: "Title"),
