@@ -30,6 +30,9 @@ dependencies:
   # webview package to show a browser in the app
   webview_flutter: ^0.3.15
 
+  # date time helpers
+  intl: ^0.16.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

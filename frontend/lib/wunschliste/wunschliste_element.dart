@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import 'package:wunschlist/model/wunsch.dart';
 import 'package:wunschlist/model/wunschlist_model.dart';
@@ -19,6 +20,14 @@ class WunschlisteElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var dateFormat = new DateFormat("dd-MM-yyyy - HH:mm");
+    String wunschCreated = dateFormat
+        .format(new DateTime.fromMillisecondsSinceEpoch(wunsch.createdInMs));
+    var textColor =
+        MediaQuery.of(context).platformBrightness == Brightness.light
+            ? Theme.of(context).textTheme.title.color
+            : Colors.black;
+
     Widget card = Card(
       margin: const EdgeInsets.all(20.0),
       elevation: 8.0,
@@ -30,11 +39,14 @@ class WunschlisteElement extends StatelessWidget {
           title: Text(
             wunsch.title,
             style: Theme.of(context).textTheme.title.copyWith(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Theme.of(context).textTheme.title.color
-                    : Colors.black),
+                  color: textColor,
+                ),
           ),
+          subtitle: Text(wunschCreated,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle
+                  .copyWith(color: textColor)),
         ),
       ),
     );
