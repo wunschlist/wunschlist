@@ -29,7 +29,11 @@ class WunschlisteElement extends StatelessWidget {
         child: ListTile(
           title: Text(
             wunsch.title,
-            style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.title.copyWith(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Theme.of(context).textTheme.title.color
+                    : Colors.black),
           ),
         ),
       ),
