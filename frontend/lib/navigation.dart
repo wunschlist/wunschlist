@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'wunschliste/wunschliste.dart';
+import 'my_app_bar.dart';
 
 // Our navigation widget which handles navigation between different screens.
 class NavigationWidget extends StatefulWidget {
@@ -27,9 +28,11 @@ class _NavigationWidgetState extends State<NavigationWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Wunschlist"),
-      ),
+      appBar: MyAppBar(title: "Wunschlist")/*AppBar(
+        title: Text("Wunschlist", style: Theme.of(context).textTheme.title, textAlign: TextAlign.start),
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+      )*/,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

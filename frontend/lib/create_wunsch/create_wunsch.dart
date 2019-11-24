@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wunschlist/model/wunschlist_model.dart';
 import 'package:wunschlist/model/wunsch.dart';
 import 'add_link_widget.dart';
+import 'package:wunschlist/my_app_bar.dart';
 
 class CreateWunschWidget extends StatefulWidget {
   @override
@@ -37,8 +38,8 @@ class _CreateWunschWidgetState extends State<CreateWunschWidget> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(
-        title: Text("Create Wunsch"),
+      appBar: MyAppBar(
+        title: "Create Wunsch",
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

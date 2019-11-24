@@ -16,7 +16,7 @@ class WunschlistApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Wunschlist',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepOrange,
         ),
         initialRoute: "/",
         routes: {

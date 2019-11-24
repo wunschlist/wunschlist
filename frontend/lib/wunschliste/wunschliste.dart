@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wunschlist/model/wunschlist_model.dart';
 import 'package:provider/provider.dart';
+
+import 'package:wunschlist/model/wunschlist_model.dart';
+import 'wunschliste_element.dart';
 
 class WunschlisteWidget extends StatefulWidget {
   @override
@@ -17,28 +19,8 @@ class _WunschlisteWidgetState extends State<WunschlisteWidget> {
           itemCount: wunschlistModel.wunschlist.length,
           itemBuilder: (context, index) {
             final wunsch = wunschlistModel.wunschlist[index];
-            return Dismissible(
-              key: Key(wunsch.title),
-              onDismissed: (direction) {
-                Provider.of<WunschlistModel>(context, listen: false)
-                    .remove(wunschlistModel.wunschlist[index]);
-                Scaffold.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(wunsch.title + " removed"),
-                  ),
-                );
-              },
-              background: Container(color: Colors.red),
-              child: Container(
-                color: Colors.orange[((index % 10) + 1) * 100],
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    title: Text(wunsch.title, style: Theme.of(context).textTheme.title,),
-                  ),
-                ),
-              ),
-            );
+            return WunschlisteElement(
+                wunsch: wunsch, index: index, wunschlistModel: wunschlistModel);
           },
         );
       }),
