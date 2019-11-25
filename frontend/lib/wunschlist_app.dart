@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'model/wunschlist_model.dart';
 import 'create_wunsch/create_wunsch.dart';
 import 'create_wunsch/add_link_widget.dart';
+import 'wunsch_detail/wunsch_detail.dart';
 
 // This file includes the basic sceleton of our app.
 // It has its title and specifies the theme.
@@ -28,7 +29,8 @@ class WunschlistApp extends StatelessWidget {
         routes: {
           "/": (context) => NavigationWidget(),
           "/create_wunsch": (context) => CreateWunschWidget(),
-          "/add_link": (context) => AddLinkWidget()
+          "/add_link": (context) => AddLinkWidget(),
+          "/wunsch_detail": (context) => WunschDetailWidget()
         },
       ),
     );

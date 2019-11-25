@@ -28,25 +28,30 @@ class WunschlisteElement extends StatelessWidget {
             ? Theme.of(context).textTheme.title.color
             : Colors.black;
 
-    Widget card = Card(
-      margin: const EdgeInsets.all(20.0),
-      elevation: 8.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      color: Colors.orange[((index % 10) + 1) * 100],
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListTile(
-          title: Text(
-            wunsch.title,
-            style: Theme.of(context).textTheme.title.copyWith(
-                  color: textColor,
-                ),
+    Widget card = InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, "/wunsch_detail");
+      },
+      child: Card(
+        margin: const EdgeInsets.all(20.0),
+        elevation: 8.0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        color: Colors.orange[((index % 10) + 1) * 100],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            title: Text(
+              wunsch.title,
+              style: Theme.of(context).textTheme.title.copyWith(
+                    color: textColor,
+                  ),
+            ),
+            subtitle: Text(wunschCreated,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle
+                    .copyWith(color: textColor)),
           ),
-          subtitle: Text(wunschCreated,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle
-                  .copyWith(color: textColor)),
         ),
       ),
     );

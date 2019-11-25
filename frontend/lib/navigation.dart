@@ -28,11 +28,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: "Wunschlist")/*AppBar(
-        title: Text("Wunschlist", style: Theme.of(context).textTheme.title, textAlign: TextAlign.start),
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-      )*/,
+      appBar: MyAppBar(title: "Wunschlist"),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
