@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'package:wunschlist/model/wunsch.dart';
 import 'package:wunschlist/model/wunschlist_model.dart';
+import 'package:wunschlist/wunsch_detail/wunsch_detail.dart';
 
 class WunschlisteElement extends StatelessWidget {
   WunschlisteElement(
@@ -30,7 +31,9 @@ class WunschlisteElement extends StatelessWidget {
 
     Widget card = InkWell(
       onTap: () {
-        Navigator.pushNamed(context, "/wunsch_detail");
+        //Navigator.pushNamed(context, "/wunsch_detail");
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => WunschDetailWidget(),
+        settings: RouteSettings(arguments: wunsch)));
       },
       child: Card(
         margin: const EdgeInsets.all(20.0),
