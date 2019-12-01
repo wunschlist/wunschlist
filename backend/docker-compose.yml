@@ -1,0 +1,13 @@
+version: '2'
+services:
+    wunschlist:
+        restart: unless-stopped
+        image: webgab/wunschlist
+        container_name: wunschlist
+        ports:
+            - 3000:3000
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+      traefik.enable: "true"
+      traefik.frontend.rule: "Host:wunschlist.gaseba.de"
+      traefik.port: "3000"
