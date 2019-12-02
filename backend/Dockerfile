@@ -13,6 +13,7 @@ COPY ./backend ./
 # Install dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm ci
+RUN npm run build
 
 EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start:prod" ]
