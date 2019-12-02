@@ -8,7 +8,7 @@ RUN npm i -g npm@latest
 WORKDIR /usr/src/app
 
 # Copy whole project
-COPY ./ ./
+COPY ./backend ./
 
 # Install dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
